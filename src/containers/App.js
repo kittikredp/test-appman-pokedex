@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CardBlock from '../components/CardBlock'
 import './App.css'
-import smile from '../images/cute.png'
+import AddPokemonModal from './AddPokemonModal'
 
 const COLORS = {
   Psychic: "#f8a5c2",
@@ -496,12 +496,40 @@ const pokemons = [
 	}
 ]
 
- const CardBlocks = pokemons.map( (pokemon) => {
-		return <CardBlock pokemon={pokemon}/>
+
+const CardBlocks = pokemons.map( (pokemon) => {
+	return <CardBlock
+	showHalf
+	pokemon={pokemon}
+	buttonText='x'
+	buttonHandler={() => {console.log('s')}}
+	/>
 })
 
 class App extends Component {
-
+	constructor () {
+    super()
+    this.state = {
+      showModal: false
+		}
+    
+    this.handleOpenModal = this.handleOpenModal.bind(this)
+		this.handleCloseModal = this.handleCloseModal.bind(this)
+		this.handleRemovePokemon = this.handleRemovePokemon.bind(this)
+	}
+  
+  handleOpenModal () {
+    this.setState({ showModal: true });
+  }
+  
+  handleCloseModal () {
+    this.setState({ showModal: false });
+	}
+	
+	handleRemovePokemon () {
+		console.log('remPoke')
+	}
+		
   render() {
     return (
       <div className="App">
@@ -514,10 +542,18 @@ class App extends Component {
 				</div>
 
 				<div className="footer">
-					<div className="add-button">
+					<div
+						className="add-button"
+						onClick={this.handleOpenModal}
+					>
 						+
 					</div>
 				</div>
+
+				<AddPokemonModal
+					isOpen={this.state.showModal}
+					onRequestClose={this.handleCloseModal}
+				/>
       </div>
     )
   }

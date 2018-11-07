@@ -1,15 +1,24 @@
 
 .card-block{
-	width: 49%;
+	position: relative;
+	width: 95%;
 	height: 200px;
 	background-color: gray;
 	margin: 5px;
 	padding: 5px;
 	box-sizing: border-box;
 }
+
+.card-block.half {
+	width: 49%;
+}
+
+.card-block:hover  .card-btn{
+	display: block;
+}
+
 .card-img{
 	height: 90%;
-
 }
 
 .detail{
@@ -27,4 +36,13 @@
 .happiness img{
 	width: 30px;
 	margin: 1px 1px;
+}
+
+.card-btn{
+	position: absolute;
+	display: none;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	font-size: 2em;
 }
