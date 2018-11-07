@@ -1,0 +1,30 @@
+
+.card-block{
+	width: 49%;
+	height: 200px;
+	background-color: gray;
+	margin: 5px;
+	padding: 5px;
+	box-sizing: border-box;
+}
+.card-img{
+	height: 90%;
+
+}
+
+.detail{
+	display: inline-block;
+	width: 70%;
+	padding: 20px;
+	box-sizing: border-box;
+	vertical-align: top;
+}
+
+.happiness{
+
+}
+
+.happiness img{
+	width: 30px;
+	margin: 1px 1px;
+}

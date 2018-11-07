@@ -1,0 +1,15 @@
+.title{
+	display: inline-block;
+    width: 20%;
+}
+.bar {
+	background-color: lightgrey;
+	border-radius: 13px;
+	display: inline-block;
+	width: 70%;
+}
+.bar>div {
+  background-color: orange;
+  height: 20px;
+  border-radius: 10px;
+}
