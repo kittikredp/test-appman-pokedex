@@ -1,4 +1,4 @@
-import { FETCH_POKEMON, UPDATE_MY_POKEMON } from "../actions";
+import { FETCH_POKEMON, CLEAR_POKEMON, UPDATE_MY_POKEMON } from "../actions"
 
 const initState = {
 	pokemonList: [],
@@ -17,6 +17,11 @@ export default function(state = initState, action) {
 				...state,
 				myPokemon: action.payload
 			}
+		case CLEAR_POKEMON:
+			return {
+				...state,
+				pokemonList: []
+			}
   }
-  return state;
+  return state
 }

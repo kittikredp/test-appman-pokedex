@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import Modal from 'react-modal'
 import _ from 'lodash'
-import {fetchPokemon, updateMyPokemon} from '../../actions'
+import {fetchPokemon, updateMyPokemon, clearPokemonList} from '../../actions'
 import CardBlock from '../../components/CardBlock'
 import './index.css'
 
@@ -23,6 +23,8 @@ class AddPokemonModal extends Component {
 				this.setState(initState, () => {
 					this.props.fetchPokemon()
 				})
+			} else {
+				this.props.clearPokemonList()
 			}
 		}
 	}
@@ -131,7 +133,7 @@ class AddPokemonModal extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ fetchPokemon, updateMyPokemon }, dispatch)
+  return bindActionCreators({ fetchPokemon, updateMyPokemon, clearPokemonList }, dispatch)
 }
 
 const mapStateToProps = ({ pokemon }) => {
