@@ -6,10 +6,19 @@ const ROOT_URL = `http://localhost:3030/api/cards`
 export const FETCH_POKEMON = "FETCH_POKEMON"
 export const UPDATE_MY_POKEMON = "UPDATE_MY_POKEMON"
 
-export function fetchPokemon(name, type) {
-  const url = `${ROOT_URL}?name=${name}&type=${type}`
+const getQueryString = (params) => {
+	return Object.keys(params).map(key => {
+		if (params[key].length == 0) return ''
+		return `${key}=${params[key]}`
+	}).join('&')
+}
+export function fetchPokemon(params = {}) {
+
+	const queryString = getQueryString(params)
+  const url = `${ROOT_URL}?${queryString}`
   const request = axios.get(url)
 
+	console.log('url', url)
   return {
     type: FETCH_POKEMON,
     payload: request
