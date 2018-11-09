@@ -21,28 +21,19 @@ const COLORS = {
 }
 
 class App extends Component {
-	constructor () {
-    super()
-    this.state = {
-      showModal: false
-		}
-    
-    this.handleOpenModal = this.handleOpenModal.bind(this)
-		this.handleCloseModal = this.handleCloseModal.bind(this)
-	}
-	
-	componentDidMount() {
-		this.props.fetchPokemon('','')
-	}
-  handleOpenModal () {
-    this.setState({ showModal: true });
-  }
-  
-  handleCloseModal () {
-    this.setState({ showModal: false });
+	state = {
+		showModal: false
 	}
 
-	removeMyPokemon = (pokemonToRemove) =>{
+  handleOpenModal = () => {
+    this.setState({ showModal: true })
+  }
+  
+  handleCloseModal = () => {
+    this.setState({ showModal: false })
+	}
+
+	handleRemoveMyPokemon = (pokemonToRemove) =>{
 		const myPokemon = this.props.pokemon.myPokemon.filter((pokemon) => {
 			return pokemon.id != pokemonToRemove.id
 		})
@@ -57,10 +48,10 @@ class App extends Component {
 				showHalf
 				pokemon={pokemon}
 				buttonText='x'
-				buttonHandler={() => {this.removeMyPokemon(pokemon)}}/>
+				buttonHandler={() => {this.handleRemoveMyPokemon(pokemon)}}/>
 		})
 	
-	return myPokemonBlocks
+		return myPokemonBlocks
 	}
 
   render() {

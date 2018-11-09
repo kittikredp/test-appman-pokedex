@@ -1,0 +1,20 @@
+.pokemon-list{
+	height: 90%;
+}
+
+.search-bar{
+	display: flex;
+	width: 100%
+}
+.name-search{
+	margin: 5px;
+	width: 50%
+}
+.type-search{
+	margin: 5px;
+	width: 50%
+}
+.cardBlocks-container{
+	height: 100%;
+	overflow: auto;
+}
