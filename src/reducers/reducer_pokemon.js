@@ -1,4 +1,4 @@
-import { FETCH_POKEMON, ADD_MY_POKEMON } from "../actions";
+import { FETCH_POKEMON, UPDATE_MY_POKEMON } from "../actions";
 
 const initState = {
 	pokemonList: [],
@@ -12,10 +12,10 @@ export default function(state = initState, action) {
 				...state,
 				pokemonList: action.payload.data.cards
 			}
-		case ADD_MY_POKEMON:
+		case UPDATE_MY_POKEMON:
 			return {
 				...state,
-				myPokemon: [...state.myPokemon, action.payload]
+				myPokemon: action.payload
 			}
   }
   return state;

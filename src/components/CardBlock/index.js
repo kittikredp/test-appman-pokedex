@@ -24,17 +24,9 @@ const renderHappiness = (level) => {
 	return happinessLevel
 }
 
-const renderButton = (text, handler) => {
-	return <div
-		onClick={handler}
-	>
-		{text}
-	</div>
-}
-
 export const CardBlock = (props) => {
   
-  let {pokemon, showHalf, remove, buttonText, buttonHandler} = props
+  let {pokemon, showHalf, buttonText, buttonHandler} = props
 	
 	pokemon = !pokemon.attacks ? {attacks: [], ...pokemon}:pokemon
 	pokemon = !pokemon.weaknesses ? {weaknesses: [], ...pokemon}:pokemon

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import {fetchPokemon} from '../actions'
+import {fetchPokemon, updateMyPokemon} from '../actions'
 import CardBlock from '../components/CardBlock'
 import './App.css'
 import AddPokemonModal from './AddPokemonModal'
@@ -29,8 +29,6 @@ class App extends Component {
     
     this.handleOpenModal = this.handleOpenModal.bind(this)
 		this.handleCloseModal = this.handleCloseModal.bind(this)
-		this.handleRemovePokemon = this.handleRemovePokemon.bind(this)
-		
 	}
 	
 	componentDidMount() {
@@ -43,9 +41,12 @@ class App extends Component {
   handleCloseModal () {
     this.setState({ showModal: false });
 	}
-	
-	handleRemovePokemon () {
-		console.log('remPoke')
+
+	removeMyPokemon = (pokemonToRemove) =>{
+		const myPokemon = this.props.pokemon.myPokemon.filter((pokemon) => {
+			return pokemon.id != pokemonToRemove.id
+		})
+		this.props.updateMyPokemon(myPokemon)
 	}
 	
 	renderCardBlocks = (myPokemon) => {
@@ -56,7 +57,7 @@ class App extends Component {
 				showHalf
 				pokemon={pokemon}
 				buttonText='x'
-				buttonHandler={() => {console.log('s')}}/>
+				buttonHandler={() => {this.removeMyPokemon(pokemon)}}/>
 		})
 	
 	return myPokemonBlocks
@@ -91,11 +92,11 @@ class App extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchPokemon }, dispatch)
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ fetchPokemon, updateMyPokemon }, dispatch)
 }
 
-function mapStateToProps({ pokemon }) {
+const mapStateToProps = ({ pokemon }) => {
   return { pokemon }
 }
 

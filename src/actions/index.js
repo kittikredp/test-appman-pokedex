@@ -4,7 +4,7 @@ import axios from "axios"
 const ROOT_URL = `http://localhost:3030/api/cards`
 
 export const FETCH_POKEMON = "FETCH_POKEMON"
-export const ADD_MY_POKEMON = "ADD_MY_POKEMON"
+export const UPDATE_MY_POKEMON = "UPDATE_MY_POKEMON"
 
 export function fetchPokemon(name, type) {
   const url = `${ROOT_URL}?name=${name}&type=${type}`
@@ -16,9 +16,9 @@ export function fetchPokemon(name, type) {
   }
 }
 
-export function addMyPokemon(pokemon){
+export function updateMyPokemon(pokemon){
 	return {
-		type: ADD_MY_POKEMON,
+		type: UPDATE_MY_POKEMON,
 		payload: pokemon
 	}
 }

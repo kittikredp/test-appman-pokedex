@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import Modal from 'react-modal'
-import {addMyPokemon} from '../../actions'
+import {updateMyPokemon} from '../../actions'
 import CardBlock from '../../components/CardBlock'
 
 class AddPokemonModal extends Component {
@@ -16,12 +16,17 @@ class AddPokemonModal extends Component {
 				marginRight: '10%',
 			}
 		}
+
+		const addMyPokemon = (pokemon) => {
+			const myPokemon = [...this.props.pokemon.myPokemon, pokemon]
+			this.props.updateMyPokemon(myPokemon)
+		}
 		
 	 	const CardBlocks = this.props.pokemon.pokemonList.map((pokemon) => {
 			return <CardBlock
 				pokemon={pokemon}
 				buttonText='Add'
-				buttonHandler={() => this.props.addMyPokemon(pokemon)}
+				buttonHandler={() => addMyPokemon(pokemon)}
 			/>
 		})
 	
@@ -38,11 +43,11 @@ class AddPokemonModal extends Component {
 	}
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addMyPokemon }, dispatch)
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ updateMyPokemon }, dispatch)
 }
 
-function mapStateToProps({ pokemon }) {
+const mapStateToProps = ({ pokemon }) => {
   return { pokemon }
 }
 
