@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import Modal from 'react-modal'
+import _ from 'lodash'
 import {updateMyPokemon} from '../../actions'
 import CardBlock from '../../components/CardBlock'
 
 class AddPokemonModal extends Component {
   render() {
 		const {isOpen, onRequestClose} = this.props
+		const {pokemonList, myPokemon} = this.props.pokemon
 
 		const customStyles = {
 			content : {
@@ -18,17 +20,24 @@ class AddPokemonModal extends Component {
 		}
 
 		const addMyPokemon = (pokemon) => {
-			const myPokemon = [...this.props.pokemon.myPokemon, pokemon]
-			this.props.updateMyPokemon(myPokemon)
+			const pokemonToUpdate = [...myPokemon, pokemon]
+			this.props.updateMyPokemon(pokemonToUpdate)
 		}
 		
-	 	const CardBlocks = this.props.pokemon.pokemonList.map((pokemon) => {
-			return <CardBlock
+		const renderCardBlocks = () => {
+			const pokemonToSearch = _.differenceBy(pokemonList, myPokemon, 'id');
+			
+			if (!pokemonToSearch) return null
+			
+			const myPokemonBlocks = pokemonToSearch.map((pokemon) => {
+				return <CardBlock
 				pokemon={pokemon}
 				buttonText='Add'
-				buttonHandler={() => addMyPokemon(pokemon)}
-			/>
-		})
+				buttonHandler={() => addMyPokemon(pokemon)}/>
+			})
+		
+			return myPokemonBlocks
+		}
 	
     return (
 			<Modal
@@ -37,7 +46,7 @@ class AddPokemonModal extends Component {
 				shouldCloseOnOverlayClick={true}
 				style={customStyles}
 			>
-				{CardBlocks}
+				{renderCardBlocks()}
 			</Modal>
   	)
 	}
