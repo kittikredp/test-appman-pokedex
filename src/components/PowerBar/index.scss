@@ -1,0 +1,20 @@
+@import "../../site-setting";
+
+.power-bar {
+	.title{
+		display: inline-block;
+			width: 20%;
+	}
+	.bar {
+		background-color: $levelTubeBackground;
+		border-radius: 13px;
+		display: inline-block;
+		width: 70%;
+		box-shadow: 1px 1px 2px $levelTubeBoxShadow;
+	}
+	.bar>div {
+		background-color: $levelTubeValueBackground;
+		height: 20px;
+		border-radius: 10px;
+	}
+}

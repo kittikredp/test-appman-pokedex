@@ -1,0 +1,49 @@
+@import "../../site-setting";
+
+.App{
+	height: 100%;
+
+	.header{
+		text-align: center;
+		height: 10%;
+		font-size: 3em;
+	}
+
+	.body{
+		display: flex;
+		flex-wrap: wrap;
+		overflow: auto;
+		height: 80%;
+	}
+
+	.footer{
+		height: 10%;
+		background-color: $bottomBarBackground;
+		box-shadow: 1px 1px 2px $bottomBarBoxShadow;
+	}
+
+	.add-button{
+		position: relative;
+    bottom: 50px;
+    font-size: 5em;
+    color: $bottomBarTextColor;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    background-color: $bottomBarBackground;
+		box-shadow: inset 0px 5px 5px 0px $bottomBarBoxShadow;
+		
+    margin: 0 auto;
+    text-align: center;
+	}
+	
+	::-webkit-scrollbar {
+		width: 8px;
+		height: 10px;
+
+	}
+	::-webkit-scrollbar-thumb {
+		border-radius: 8px;
+		background: gray;
+	}
+}
