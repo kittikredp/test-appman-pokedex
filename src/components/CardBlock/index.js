@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types'
 import React from 'react'
 import PowerBar from '../PowerBar'
 import happinessImg from '../../images/cute.png'
@@ -14,7 +13,7 @@ const getDamage = (damage) => {
 const renderHappiness = (level) => {
 	let happinessLevel = []
 	for (let i = 0; i < level; i++) {
-		happinessLevel.push(<img src={happinessImg}></img>)
+		happinessLevel.push(<img src={happinessImg} key={i}></img>)
 	}
 	return happinessLevel
 }

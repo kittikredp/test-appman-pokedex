@@ -19,7 +19,6 @@ class AddPokemonModal extends Component {
 	componentWillReceiveProps(nextProps) {
 		if (this.props.isOpen != nextProps.isOpen) {
 			if(nextProps.isOpen) {
-				console.log("prop open!")
 				this.setState(initState, () => {
 					this.props.fetchPokemon()
 				})
@@ -58,7 +57,6 @@ class AddPokemonModal extends Component {
 			this.setState({limit: newLimit}, () =>{
 				this.props.fetchPokemon(this.state)
 			})
-			console.log('bottom')
 		 }
 	}
 	
@@ -76,11 +74,13 @@ class AddPokemonModal extends Component {
 			
 			if (!pokemonToSearch) return null
 			
-			const myPokemonBlocks = pokemonToSearch.map((pokemon) => {
+			const myPokemonBlocks = pokemonToSearch.map((pokemon, i) => {
 				return <CardBlock
 					pokemon={pokemon}
 					buttonText='Add'
-					buttonHandler={() => addMyPokemon(pokemon)}/>
+					buttonHandler={() => addMyPokemon(pokemon)}
+					key={i}
+					/>
 			})
 		
 			return myPokemonBlocks
@@ -133,5 +133,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = ({ pokemon }) => {
   return { pokemon }
 }
+
+Modal.setAppElement('body')
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddPokemonModal)
