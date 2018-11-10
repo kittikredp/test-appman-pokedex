@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types'
 import React from 'react'
 import './index.scss'	
 
@@ -15,10 +14,5 @@ export const PowerBar = (props) => {
 		</div>
   )
 }
-
-// CardBlock.propTypes = {
-//   remove: PropTypes.func,
-//   pokemon:PropTypes.object,
-// }
 
 export default PowerBar

@@ -1,44 +1,49 @@
-.header{
-	text-align: center;
-	height: 15%;
-	font-size: 5em;
-}
+@import "../site-setting";
 
-.body{
-	display: flex;
-	flex-wrap: wrap;
-	overflow: auto;
-	height: 520px;
-}
+.App{
+	height: 100%;
 
-.footer{
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 15%;
-	background-color: red;
-}
+	.header{
+		text-align: center;
+		height: 10%;
+		font-size: 3em;
+	}
 
-.add-button{
-	position: relative;
-	bottom: 40px;
-	font-size: 4em;
-	color: white;
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
-	background-color: red;
-	margin: 0 auto;
-	text-align: center;
-}
+	.body{
+		display: flex;
+		flex-wrap: wrap;
+		overflow: auto;
+		height: 80%;
+	}
 
+	.footer{
+		height: 10%;
+		background-color: $bottomBarBackground;
+		box-shadow: 1px 1px 2px $bottomBarBoxShadow;
+	}
 
-::-webkit-scrollbar {
-	width: 8px;
-	height: 10px;
+	.add-button{
+		position: relative;
+    bottom: 50px;
+    font-size: 5em;
+    color: $bottomBarTextColor;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    background-color: $bottomBarBackground;
+		box-shadow: inset 0px 5px 5px 0px $bottomBarBoxShadow;
+		
+    margin: 0 auto;
+    text-align: center;
+	}
+	
+	::-webkit-scrollbar {
+		width: 8px;
+		height: 10px;
 
-}
-::-webkit-scrollbar-thumb {
-	border-radius: 8px;
-	background: gray;
+	}
+	::-webkit-scrollbar-thumb {
+		border-radius: 8px;
+		background: gray;
+	}
 }

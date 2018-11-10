@@ -66,14 +66,6 @@ class AddPokemonModal extends Component {
 		const {isOpen, onRequestClose} = this.props
 		const {pokemonList, myPokemon} = this.props.pokemon
 
-		const customStyles = {
-			content : {
-				top: '10%',
-				left: '10%',
-				marginRight: '10%',
-			}
-		}
-
 		const addMyPokemon = (pokemon) => {
 			const pokemonToUpdate = [...myPokemon, pokemon]
 			this.props.updateMyPokemon(pokemonToUpdate)
@@ -99,13 +91,15 @@ class AddPokemonModal extends Component {
 				isOpen={isOpen}
 				onRequestClose={onRequestClose}
 				shouldCloseOnOverlayClick={true}
-				style={customStyles}
+				className="Modal"
+				overlayClassName="Overlay"
 			>
 				<div className="pokemon-list">
 					<div className="search-bar">
 						<input
 							className="name-search"
 							type="text"
+							placeholder="Find pokemon"
 							onChange={this.handleChangeName}
 						/>
 						<select className="type-search" onChange={this.handleChangeType}>

@@ -1,36 +1,54 @@
+@import "../../site-setting";
+
 .card-block{
+	display: flex;
 	position: relative;
-	width: 95%;
 	height: 200px;
-	background-color: gray;
+	background-color: $cardBackground;
 	margin: 5px;
 	padding: 5px;
 	box-sizing: border-box;
-}
+	box-shadow: 1px 1px 5px $cardBoxShadow;
 
-.card-block.half {
-	width: 49%;
-}
+	&.half{
+		width: 49%;
+	}
+	
+	&:hover{
+		box-shadow: 1px 1px 5px $cardBoxShadowHover;
 
-.card-block:hover  .card-btn{
-	display: block;
-}
-
-.card-img{
-	height: 90%;
-}
+		.card-btn{
+			display: block;
+		}
+	}
+	
+	.card-img-container{
+		width: 30%;
+		height: 100%;
+		display: flex;
+		img{
+			height: 100%;
+			margin: auto;
+		}
+	}
 
 .detail{
 	display: inline-block;
-	width: 70%;
-	padding: 20px;
+	width: 60%;
+	margin-left: 20px;
 	box-sizing: border-box;
 	vertical-align: top;
-}
+	
+	.name{
+		font-size: 25px;
+	}
 
-.happiness img{
-	width: 30px;
-	margin: 1px 1px;
+	.happiness{
+		img{
+			width: 30px;
+			margin: 1px 1px;
+		}
+	}
 }
 
 .card-btn{
@@ -40,4 +58,6 @@
 	right: 10px;
 	cursor: pointer;
 	font-size: 2em;
-}
+	color: $cardButton;
+	}
+} 

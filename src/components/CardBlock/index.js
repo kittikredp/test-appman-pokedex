@@ -35,7 +35,9 @@ export const CardBlock = (props) => {
 	
   return (
     <div className={`card-block${isHalf}`}>
-			<img className="card-img" src={pokemon.imageUrl} />
+			<div className="card-img-container">
+				<img src={pokemon.imageUrl} />
+			</div>
 			<div className="detail">
 				<div className="name">
 					{pokemon.name}
