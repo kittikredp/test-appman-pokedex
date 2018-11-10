@@ -5,7 +5,7 @@ import Modal from 'react-modal'
 import _ from 'lodash'
 import {fetchPokemon, updateMyPokemon, clearPokemonList} from '../../actions'
 import CardBlock from '../../components/CardBlock'
-import './index.css'
+import './index.scss'
 
 const initState = {
 	name: '',

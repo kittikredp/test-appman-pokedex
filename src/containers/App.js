@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import {fetchPokemon, updateMyPokemon} from '../actions'
 import CardBlock from '../components/CardBlock'
-import './App.css'
+import './App.scss'
 import AddPokemonModal from './AddPokemonModal'
 
 const COLORS = {

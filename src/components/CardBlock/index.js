@@ -3,14 +3,9 @@ import React from 'react'
 import PowerBar from '../PowerBar'
 import happinessImg from '../../images/cute.png'
 
-import './index.css'	
+import './index.scss'	
 
 const getDamage = (damage) => {
-	// const isSymbolDamage = isNaN(damage.slice(-1))
-	// if (damage.length == 0 || !isSymbolDamage) return 0
-
-	// return parseInt(damage.slice(0, -1))
-
 	if (damage.length == 0) return 0
 
 	return isNaN(damage.slice(-1)) ? parseInt(damage.slice(0, -1)):parseInt(damage)
@@ -38,11 +33,6 @@ export const CardBlock = (props) => {
 	const happinessLevel = Math.ceil(((hpPower / 10) + (damagePower /10 ) + 10 - (pokemon.weaknesses.length)) / 5)
 	const isHalf = showHalf ? ' half':''
 	
-	// console.log('----------'+pokemon.name)
-	// console.log('hpPower', hpPower)
-	// console.log('pokemon.weaknesses.length', pokemon.weaknesses.length)
-	// console.log('cal dmg start')
-	// console.log('damagePower', damagePower)
   return (
     <div className={`card-block${isHalf}`}>
 			<img className="card-img" src={pokemon.imageUrl} />
@@ -72,10 +62,5 @@ export const CardBlock = (props) => {
 		</div>
   )
 }
-
-// CardBlock.propTypes = {
-//   remove: PropTypes.func,
-//   pokemon:PropTypes.object,
-// }
 
 export default CardBlock

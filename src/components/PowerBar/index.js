@@ -1,6 +1,6 @@
 // import PropTypes from 'prop-types'
 import React from 'react'
-import './index.css'	
+import './index.scss'	
 
 export const PowerBar = (props) => {
   
